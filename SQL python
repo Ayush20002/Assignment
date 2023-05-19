@@ -1,0 +1,26 @@
+import mysql.connector
+
+# Connect to the MySQL server
+conn = mysql.connector.connect(
+    host="localhost",
+    user="your_username",
+    password="your_password",
+    database="your_database"
+)
+
+# Create a cursor object
+cursor = conn.cursor()
+
+# Use the cursor to execute SQL queries
+cursor.execute("SELECT * FROM your_table")
+
+# Fetch all rows from the result set
+rows = cursor.fetchall()
+
+# Process the fetched data
+for row in rows:
+    print(row)
+
+# Close the cursor and the connection
+cursor.close()
+conn.close()
